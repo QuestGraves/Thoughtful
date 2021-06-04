@@ -1,19 +1,17 @@
-package com.keltica.thoughtful.view_model.view.home
+package com.keltica.thoughtful.view.search
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.keltica.thoughtful.view_model.MainViewModel
-import com.keltica.thoughtful.databinding.FragmentHomeBinding
+import com.keltica.thoughtful.databinding.FragmentSearchPortalBinding
 
-class HomeFragment : Fragment() {
+class SearchPortalFragment : Fragment() {
 
-    private lateinit var viewModel: MainViewModel
-    private var _binding: FragmentHomeBinding? = null
+    private lateinit var viewModel: SearchPortalViewModel
+    private var _binding: FragmentSearchPortalBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -25,13 +23,12 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         viewModel =
-            ViewModelProvider(this).get(MainViewModel::class.java)
+            ViewModelProvider(this).get(SearchPortalViewModel::class.java)
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentSearchPortalBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
-    //ToDo Data Binding or LiueData situation here.
+
         return root
     }
 
