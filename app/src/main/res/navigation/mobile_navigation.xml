@@ -13,13 +13,13 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.keltica.thoughtful.view_model.view.dashboard.DashboardFragment"
+        android:name="com.keltica.thoughtful.view_model.view.contact.ChoseContactFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_chose_contact" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.keltica.thoughtful.view_model.view.notifications.NotificationsFragment"
+        android:name="com.keltica.thoughtful.view_model.view.search.SearchPortalFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_search_portal" />
 </navigation>

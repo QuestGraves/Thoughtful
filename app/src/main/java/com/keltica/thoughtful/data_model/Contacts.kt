@@ -3,7 +3,8 @@ package com.keltica.thoughtful.data_model
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
-data class Contact(
+data class Contacts(
+
     val name: String,
 ) {
     // Variables

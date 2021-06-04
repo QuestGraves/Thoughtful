@@ -1,4 +1,4 @@
-package com.keltica.thoughtful.view_model.view.dashboard
+package com.keltica.thoughtful.view_model.view.search
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,12 +8,12 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.keltica.thoughtful.view_model.MainViewModel
-import com.keltica.thoughtful.databinding.FragmentDashboardBinding
+import com.keltica.thoughtful.databinding.FragmentNotificationsBinding
 
-class DashboardFragment : Fragment() {
+class SearchPortalFragment : Fragment() {
 
     private lateinit var viewModel: MainViewModel
-    private var _binding: FragmentDashboardBinding? = null
+    private var _binding: FragmentNotificationsBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -27,11 +27,11 @@ class DashboardFragment : Fragment() {
         viewModel =
             ViewModelProvider(this).get(MainViewModel::class.java)
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textDashboard
-        //ToDo live data setup here,,,roughing in the framework for the app architecture.
+        val textView: TextView = binding.textNotifications
+
         return root
     }
 
