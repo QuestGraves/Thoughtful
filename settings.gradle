@@ -1,0 +1,2 @@
+rootProject.name = "Thoughtful"
+include ':app'
