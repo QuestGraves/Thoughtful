@@ -25,7 +25,7 @@ class ChoseContactRecyclerAdapter(private val contactModelList: List<ContactMode
     override fun onBindViewHolder(holder: ChoseContactViewHolder, position: Int) {
         val currentItem = contactModelList[position]
         //Set fields in the holder
-        Picasso.get().load(currentItem.photoUri).into(holder.contactPhoto) //This may be expensive, review a custom WorkManager solution if slow.
+        Picasso.get().load(currentItem.photoIDString).into(holder.contactPhoto) //This may be expensive, review a custom WorkManager solution if slow.
         holder.contactName.text = currentItem.displayName
         holder.contactPhone.text = currentItem.phoneNumber
     }

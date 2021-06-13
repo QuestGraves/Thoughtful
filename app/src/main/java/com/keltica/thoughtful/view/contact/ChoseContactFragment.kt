@@ -44,7 +44,7 @@ class ChoseContactFragment : Fragment() {
             Log.d(TAG, "Is the collection empty? : ${contactCollection.isEmpty()}")
             contactRecyclerView.adapter = ChoseContactRecyclerAdapter(contactCollection)
             contactRecyclerView.layoutManager = LinearLayoutManager(activity) // verify this is correct on refactor...
-            contactRecyclerView.setHasFixedSize(true)
+            contactRecyclerView.setHasFixedSize(false)
         }
         return binding.root
 
