@@ -38,7 +38,6 @@ class ChoseContactFragment : Fragment() {
 
         //RecyclerView
         val contactRecyclerView: RecyclerView = binding.contactChoseRecycler
-        Log.d(TAG, "Here is my RecyclerView: $contactRecyclerView")
         if (hasRuntimePermission()) {
             var contactCollection = ContactCollection().getContacts(requireContext())
             Log.d(TAG, "Is the collection empty? : ${contactCollection.isEmpty()}")

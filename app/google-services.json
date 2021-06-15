@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "810091465017",
+    "firebase_url": "https://thoughtful-b6b28.firebaseio.com",
+    "project_id": "thoughtful-b6b28",
+    "storage_bucket": "thoughtful-b6b28.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:810091465017:android:38fd8b21017b34882ac0e8",
+        "android_client_info": {
+          "package_name": "com.keltica.thoughtful"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "810091465017-k3ji9ptip3121ri2qj7hc2u5rnkoe2pk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.keltica.thoughtful",
+            "certificate_hash": "70d233db7d11b543c4be29b547bf33319c16361e"
+          }
+        },
+        {
+          "client_id": "810091465017-p4lkedhrh4rjjqf8etn72rh9tq70r6pj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyZ7DyMFZwBtb7Y-6o7LcV1QP60HNK73E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "810091465017-p4lkedhrh4rjjqf8etn72rh9tq70r6pj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

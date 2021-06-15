@@ -5,63 +5,89 @@ import android.database.Cursor
 import android.net.Uri
 import android.provider.ContactsContract
 import android.util.Log
-import androidx.core.database.getStringOrNull
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.firestore.ktx.firestore
+
+import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.lang.Exception
+import java.lang.NullPointerException
 
 
-class ContactCollection {
+class ContactCollection{
 
     private val TAG = "ContactCollection"
-    private val CONTACTS_LOADER_ID: Int = 1
 
 
 
  fun getContacts(context: Context?): ArrayList<ContactModel> {
+     // ToDo 1) Refactor photo impl, load the photos into a hashtable for lookup in the adapter?
+
      if(context==null){
-         println("Friendly Message: Your View is missing things because this context is null, from: $this")
+         throw NullPointerException("getContext: argument context is null...")
      }
      //grab our ContentResolver object from the Android context passed in, allowing us to decide elsewhere which lifecycle to hold onto.
-     val contentResolver = context?.contentResolver
+     val contentResolver = context.contentResolver
         //create an empty list to hold the contacts
         val list = arrayListOf<ContactModel>()
         //init URI
-        val uri: Uri = ContactsContract.Contacts.CONTENT_URI
+        val uri: Uri = ContactsContract.CommonDataKinds.Phone.CONTENT_URI
         //Sort arguments
         val sort: String = ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME  + " ASC"
         //init cursor
-        val cursor: Cursor? = context!!.contentResolver.query(uri, null, null, null, sort)
-
+        val cursor: Cursor? = context.contentResolver.query(uri, null, null, null, sort)
         Log.i(TAG, "CONTACT_PROVIDER CURSOR num of Contacts: ${cursor!!.count}" )
+//Look into implementing the CursorLoader etc per documentation as it's Asynchronous, may be able to resolve current issue.
+    val contactIDIndex = cursor.getColumnIndex(ContactsContract.Contacts._ID)
+    val contactNameIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME)
+    val contactPhoneIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER)
+    val contactPhotoIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.PHOTO_URI)
 
-//REFACTOR THIS!!! just at a loss on how to get this quite yet without this little hack...
+     CoroutineScope(Dispatchers.Default).launch{
+         try {
+             while(cursor.moveToNext()){
+                 //grab and populate a ContactModel
+                 val contact =
+                     ContactModel(
+                         ID = cursor.getString(contactIDIndex).toInt(),
+                         displayName = cursor.getString(contactNameIndex),
+                         phoneNumber = if(cursor.getString(contactPhoneIndex)==null) "" else cursor.getString(contactPhoneIndex),
+                         photo= if(cursor.getString(contactPhotoIndex) == null) "" else cursor.getString(contactPhotoIndex)
+                     )
+                 list.add(contact)
+                 updateFirestoreContactData(contact)
+             }
+             withContext(Dispatchers.Main){
+                 Log.d(TAG, "Added contact to Firestore on $this")
+             }
+         }catch(e: Exception){
+             withContext(Dispatchers.Main){
+                 Log.d(TAG, "Unable to add contact")
+             }
+         }
+     }
 
-     var contactIDIndex:Int
-     var contactNameIndex:Int
-     var contactPhoneIndex: Int
-     var contactPhotoIndex: Int
-
-        while(cursor.moveToNext()){
-            //perform (currently redundant) checks to grab column indices
-            contactIDIndex = cursor.getColumnIndex(ContactsContract.Contacts._ID)
-
-            contactNameIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME)
-
-            contactPhoneIndex =
-                cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER)
-            Log.d(TAG, "Let's see what we have for a phone column...$contactPhoneIndex")
-
-            contactPhotoIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.PHOTO_ID)
-
-            //grab and populate a ContactModel
-            val contact =
-                ContactModel(
-                    ID = cursor.getString(contactIDIndex).toInt(),
-                    displayName = cursor.getString(contactNameIndex),
-                    phoneNumber = "", //if(cursor.getString(contactPhoneIndex)==null) "" else cursor.getString(contactPhoneIndex),
-                    photoIDString = cursor.getString(contactPhotoIndex),
-                )
-            list.add(contact)
-        }
      return list
+    }
+    //FIRESTORE - Remote Persistence
+    //Data Collection Reference - Firestore
+    private val contactFirestore = Firebase.firestore.collection("contacts")
+
+    private fun updateFirestoreContactData(contact: ContactModel) = CoroutineScope(Dispatchers.IO).launch{
+        try {
+            contactFirestore.add(contact)
+            withContext(Dispatchers.Main){
+                Log.d(TAG, "Added $contact to Firestore")
+            }
+        }catch(e: Exception){
+            withContext(Dispatchers.Main){
+                Log.d(TAG, "Unable to add contact")
+            }
+        }
     }
 }
 

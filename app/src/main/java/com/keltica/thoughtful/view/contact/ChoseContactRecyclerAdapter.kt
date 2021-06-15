@@ -8,8 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.keltica.thoughtful.R
 import com.keltica.thoughtful.model.ContactModel
-import com.squareup.picasso.Picasso
-import java.util.function.ToDoubleBiFunction
+
 
 class ChoseContactRecyclerAdapter(private val contactModelList: List<ContactModel>) : RecyclerView.Adapter<ChoseContactRecyclerAdapter.ChoseContactViewHolder>(){
 
@@ -25,7 +24,8 @@ class ChoseContactRecyclerAdapter(private val contactModelList: List<ContactMode
     override fun onBindViewHolder(holder: ChoseContactViewHolder, position: Int) {
         val currentItem = contactModelList[position]
         //Set fields in the holder
-        Picasso.get().load(currentItem.photoIDString).into(holder.contactPhoto) //This may be expensive, review a custom WorkManager solution if slow.
+
+        holder.contactPhoto.setImageResource(R.drawable.ic_baseline_android_80) //ToDo This need to be mapped from contact photo uri somehow quickly...may cache them.
         holder.contactName.text = currentItem.displayName
         holder.contactPhone.text = currentItem.phoneNumber
     }

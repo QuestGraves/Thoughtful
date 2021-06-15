@@ -1,0 +1,7 @@
+Certificate fingerprints:
+         MD5:  62:06:C8:C6:2C:D4:E3:60:77:B8:75:DC:A6:2B:2F:8F
+         SHA1: 70:D2:33:DB:7D:11:B5:43:C4:BE:29:B5:47:BF:33:31:9C:16:36:1E
+         SHA256: FC:82:C3:CA:41:64:EB:5B:00:9E:5B:85:3F:9E:C0:35:F0:45:0F:58:D3:70:AD:00:89:95:93:75:BB:77:26:9D
+Signature algorithm name: SHA1withRSA
+Subject Public Key Algorithm: 2048-bit RSA key
+Version: 1
