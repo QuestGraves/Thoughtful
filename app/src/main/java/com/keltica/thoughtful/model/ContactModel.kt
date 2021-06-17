@@ -6,9 +6,9 @@ import kotlin.collections.ArrayList
 
 data class ContactModel(
     val ID: Int = -1,
-    val displayName: String = "",
-    val phoneNumber: String = "",
-    val photo: String = "",
+    var displayName: String = "",
+    var phoneNumber: String = "",
+    var photo: String = "",
 
     ) {
     // Variables

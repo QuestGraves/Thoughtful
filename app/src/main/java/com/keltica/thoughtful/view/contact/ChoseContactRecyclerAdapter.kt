@@ -10,13 +10,14 @@ import com.keltica.thoughtful.R
 import com.keltica.thoughtful.model.ContactModel
 
 
-class ChoseContactRecyclerAdapter(private val contactModelList: List<ContactModel>) : RecyclerView.Adapter<ChoseContactRecyclerAdapter.ChoseContactViewHolder>(){
+class ChoseContactRecyclerAdapter(private val contactModelList: ArrayList<ContactModel>) : RecyclerView.Adapter<ChoseContactRecyclerAdapter.ChoseContactViewHolder>(){
 
 
     //Returns an instance of this class's inner class ViewHolder with the proper objects hooked up...
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChoseContactViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.card_recycler_item_contact,
         parent, false)
+
         return ChoseContactViewHolder(itemView)
     }
 
@@ -24,8 +25,8 @@ class ChoseContactRecyclerAdapter(private val contactModelList: List<ContactMode
     override fun onBindViewHolder(holder: ChoseContactViewHolder, position: Int) {
         val currentItem = contactModelList[position]
         //Set fields in the holder
-
-        holder.contactPhoto.setImageResource(R.drawable.ic_baseline_android_80) //ToDo This need to be mapped from contact photo uri somehow quickly...may cache them.
+        //ToDo This need to be mapped from contact photo uri somehow quickly...may cache them.
+        holder.contactPhoto.setImageResource(R.drawable.ic_baseline_android_80)
         holder.contactName.text = currentItem.displayName
         holder.contactPhone.text = currentItem.phoneNumber
     }
