@@ -20,29 +20,6 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 class ContactCollectionTest {
 
-    @Test
-    fun shouldReturnContactModelObject_ContactNotNull(){
-        val contactModelObject: ContactModel = ContactModel()
-        Assert.assertNotNull(contactModelObject)
-    }
-    @Test
-    fun shouldHaveDisplayNameStringProperty_DisplayNameStringPropertyNotNull(){
-        val contactModelObject: ContactModel = ContactModel()
-        contactModelObject.displayName = "TestName"
-        Assert.assertEquals("TestName", contactModelObject.displayName)
-    }
-    @Test
-    fun shouldHavePhoneNumberStringProperty_PhoneNumberStringPropertyValue(){
-        val contactModelObject: ContactModel = ContactModel()
-        contactModelObject.phoneNumber = "123-234-3456"
-        Assert.assertEquals("123-234-3456", contactModelObject.phoneNumber)
-    }
-    @Test
-    fun shouldHavePhotoURIStringProperty_PhotoURIStringPropertyValue(){
-        val contactModelObject: ContactModel = ContactModel()
-        contactModelObject.photo = "TestPhoto.uri"
-        Assert.assertEquals("TestPhoto.uri", contactModelObject.photo)
-    }
 
 
     @Test
