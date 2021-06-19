@@ -36,8 +36,8 @@ class ChoseContactFragment : Fragment() {
         //RecyclerView
         val contactRecyclerView: RecyclerView = binding.contactChoseRecycler
         if (hasRuntimePermission()) {
-            //Move this to ViewMode
-            var contactCollection = ContactCollection.getContactsFromProvider(requireContext())
+            //Move this to ViewModel
+            var contactCollection = ContactCollection.getLocalContactCollection(requireContext())
             Log.d(TAG, "Is the collection empty? : ${contactCollection.isEmpty()}")
             contactRecyclerView.adapter = ChoseContactRecyclerAdapter(contactCollection)
             contactRecyclerView.layoutManager = LinearLayoutManager(activity) // verify this is correct on refactor...

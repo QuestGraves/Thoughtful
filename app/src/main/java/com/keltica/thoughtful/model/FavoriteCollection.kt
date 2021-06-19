@@ -4,6 +4,7 @@ class FavoriteCollection(contact: ContactModel) {
 
     private val favoriteModel = FavoriteModel(contact)
 
+
     private var favoriteCollection = mapOf(
         favoriteModel.color to "",
         favoriteModel.song to "",

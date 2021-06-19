@@ -1,10 +1,10 @@
 package com.keltica.thoughtful
 
-import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.keltica.thoughtful.model.ContactModel
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.junit.runners.JUnit4
 
 
 /**
@@ -14,11 +14,9 @@ import org.junit.runner.RunWith
  * by an underscore (_) and the expected outcome.
  *  -Matt Graves June 2021
  * */
-@RunWith(AndroidJUnit4::class)
+@RunWith(JUnit4::class)
 class ContactModelTest {
 
-
-    class ContactModelTest {
     @Test
     fun shouldReturnContactModelObject_ContactNotNull(){
         val contactModelObject: ContactModel = ContactModel()
@@ -31,7 +29,7 @@ class ContactModelTest {
         Assert.assertEquals("TestName", contactModelObject.displayName)
     }
     @Test
-    fun shouldHavePhoneNumberStringProperty_PhoneNumberStringPropertyValue(){
+    fun shouldHavePhoneStringProperty_PhoneStringPropertyValue(){
         val contactModelObject: ContactModel = ContactModel()
         contactModelObject.phoneNumber = "123-234-3456"
         Assert.assertEquals("123-234-3456", contactModelObject.phoneNumber)
@@ -43,6 +41,4 @@ class ContactModelTest {
         Assert.assertEquals("TestPhoto.uri", contactModelObject.photo)
     }
 
-
-}
 }

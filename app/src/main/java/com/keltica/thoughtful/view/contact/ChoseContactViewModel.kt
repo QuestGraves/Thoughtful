@@ -10,12 +10,27 @@ import com.keltica.thoughtful.model.ContactModel
 
 class ChoseContactViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is ChoseContact Fragment"
-    }
-    private val _contactCollection: MutableLiveData<ArrayList<ContactModel>> = TODO()
+    private val contactCollection: ArrayList<ContactModel> = ContactCollection.subscribeToRealtimeFirestoreContactData()
+
+
+
+        private val _nameText = MutableLiveData<String>().apply {
+
+
+        }
+         private val _phoneText = MutableLiveData<String>().apply {
+             value = "This is ChoseContact Fragment"
+        }
+         private val _photoText = MutableLiveData<String>().apply {
+            value = "This is ChoseContact Fragment"
+        }
+
+
+
+
+
     //ToDo: Look into LiveData/ViewModel again, still a bit hazy on observer in this scenario
 
-    val text: LiveData<String> = _text
-    val contactCollection: LiveData<ArrayList<ContactModel>> = _contactCollection
+    val nameText: LiveData<String> = _nameText
+
 }
