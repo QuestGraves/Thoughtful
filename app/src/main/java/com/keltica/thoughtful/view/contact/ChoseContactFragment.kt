@@ -13,7 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.keltica.thoughtful.databinding.FragmentChoseContactBinding
 import androidx.recyclerview.widget.RecyclerView
-import com.keltica.thoughtful.model.ContactCollection
+import com.keltica.thoughtful.model.ContactUtils
 
 
 class ChoseContactFragment : Fragment() {
@@ -37,7 +37,7 @@ class ChoseContactFragment : Fragment() {
         val contactRecyclerView: RecyclerView = binding.contactChoseRecycler
         if (hasRuntimePermission()) {
             //Move this to ViewModel
-            var contactCollection = ContactCollection.getLocalContactCollection(requireContext())
+            var contactCollection = ContactUtils.getLocalContactCollection(requireContext())
             Log.d(TAG, "Is the collection empty? : ${contactCollection.isEmpty()}")
             contactRecyclerView.adapter = ChoseContactRecyclerAdapter(contactCollection)
             contactRecyclerView.layoutManager = LinearLayoutManager(activity) // verify this is correct on refactor...
