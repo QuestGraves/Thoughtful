@@ -4,15 +4,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-import com.keltica.thoughtful.model.ContactCollection
+import com.keltica.thoughtful.model.ContactUtils
 import com.keltica.thoughtful.model.ContactModel
 
 
 class ChoseContactViewModel : ViewModel() {
 
-    private val contactCollection: ArrayList<ContactModel> = ContactCollection.subscribeToRealtimeFirestoreContactData()
-
-
+    private val contactCollection: ArrayList<ContactModel> = ContactUtils.subscribeToRealtimeFirestoreContactData()
 
         private val _nameText = MutableLiveData<String>().apply {
 
