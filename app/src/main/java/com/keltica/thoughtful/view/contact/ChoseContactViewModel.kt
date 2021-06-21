@@ -10,9 +10,9 @@ import com.keltica.thoughtful.model.ContactModel
 
 class ChoseContactViewModel : ViewModel() {
 
-    private val contactCollection: ArrayList<ContactModel> = ContactUtils.subscribeToRealtimeFirestoreContactData()
+    private val contactCollection: ArrayList<ContactModel> = TODO()
 
-        private val _nameText = MutableLiveData<String>().apply {
+    private val _nameText = MutableLiveData<String>().apply {
 
 
         }

@@ -5,7 +5,7 @@ import kotlin.collections.ArrayList
 
 
 data class ContactModel(
-    val ID: Int = -1,
+    var ID: Int = -1,
     var displayName: String = "",
     var phoneNumber: String = "",
     var photo: String = "",

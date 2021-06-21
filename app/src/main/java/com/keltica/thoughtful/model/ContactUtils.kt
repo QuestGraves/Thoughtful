@@ -13,13 +13,15 @@ import kotlinx.coroutines.withContext
 import java.lang.Exception
 import java.lang.NullPointerException
 
-
+/**
+ * Utility object to handle fetching and updating the device ContactProvider
+ * */
 object ContactUtils {
 
-    private const val TAG = "ContactCollection"
+    private const val TAG = "ContactUtils"
 
     /**
-     * Public function checks the local collection to make sure it has data then
+     * Checks the local collection to make sure it has data then
      * will load the contacts from the ContactsProvider if empty.
      * @return ArrayList<ContactModel> a collection of Contacts
      * */
@@ -36,12 +38,6 @@ object ContactUtils {
         if (context == null) {
             throw NullPointerException("$TAG: argument context is null...")
         }
-
-        val contactCollection = FirestoreUtils.Contact.retrieveAllContactsFromFirestore()
-        //If we have anything in the collection from Firestore return it
-        if (contactCollection.size > 0) return contactCollection
-
-        else{ //Load the contacts from ContactProvider
             val contactsFromProviderList: ArrayList<ContactModel> = arrayListOf()
             //init URI
             val uri: Uri = ContactsContract.CommonDataKinds.Phone.CONTENT_URI
@@ -88,5 +84,3 @@ object ContactUtils {
             return contactsFromProviderList
         }
     }
-}
-
