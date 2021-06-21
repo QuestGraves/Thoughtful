@@ -16,7 +16,7 @@ User then lands on search results and has option to purchase through normal brow
 
 This project is inspired by Behavior Driven Development / Test Driven Development so the design is minimal and roughly as follows:
   
-  Starting as a bottom navigation 3 main fragment with a Home, Contact Choser and Selection results page (1-2 more for a login and maybe another Search Results Fragment) with ViewModels.the idea is to be as modular as possible.
+  Starting as a bottom navigation 3 main fragment with a Home, Contact Chooser and Selection results page (1-2 more for a login and maybe another Search Results Fragment) with ViewModels.the idea is to be as modular as possible.
 Navigation graph, this is a good tool to help visualize workflow and help guage User Experience.
 It also makes it easy to be modular and add/remove Fragments.
 Regarding UX and design, I think BDD can really shine here if used in a creative way. 
