@@ -5,7 +5,6 @@ import android.database.Cursor
 import android.net.Uri
 import android.provider.ContactsContract
 import android.util.Log
-
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -21,13 +20,14 @@ object ContactUtils {
     private const val TAG = "ContactUtils"
 
     /**
-     * Checks the local collection to make sure it has data then
-     * will load the contacts from the ContactsProvider if empty.
+     * Will try to load the contacts from the ContactsProvider using an
+     * asynchronous call to the Content Provider
      * @return ArrayList<ContactModel> a collection of Contacts
      * */
-    fun getContacts(context: Context?): ArrayList<ContactModel> {
+     fun getContacts(context: Context?): ArrayList<ContactModel> {
         return loadContactsFromPersistence(context)
     }
+
 
     /*
      * loadContactsFromPersistence will load contacts from either Firestore
@@ -73,13 +73,13 @@ object ContactUtils {
                             )
                         //Add ContactModel to List
                         contactsFromProviderList.add(contact)
-                        //Send ContactModel to Firestore (This will move to ViewModel as the main driver once this class tests out)
                     }
                 } catch (e: Exception) {
                     withContext(Dispatchers.Main) {
                         Log.d(TAG, "Unable to add contact")
                     }
                 }
+                cursor.close()
             }
             return contactsFromProviderList
         }
