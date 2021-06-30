@@ -18,7 +18,7 @@ import org.junit.runners.JUnit4
  *  -Matt Graves June 2021
  * */
 @RunWith(JUnit4::class)
-class ContactModelTest {
+class ContactModelUnitTest {
 
     //use a single ContactModel for the whole bit...
     private lateinit var mTestContact: ContactModel
