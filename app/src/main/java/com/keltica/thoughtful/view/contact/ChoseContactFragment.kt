@@ -36,7 +36,8 @@ class ChoseContactFragment : Fragment() {
         //RecyclerView
         val contactRecyclerView: RecyclerView = binding.contactChoseRecycler
         if (hasRuntimePermission()) {
-            //Move this to ViewModel
+
+            //get the collection from the ViewModel
             var contactCollection = ContactUtils.getContacts(requireContext())
             Log.d(TAG, "Is the collection empty? : ${contactCollection.isEmpty()}")
             contactRecyclerView.adapter = ChoseContactRecyclerAdapter(contactCollection)
@@ -51,8 +52,8 @@ class ChoseContactFragment : Fragment() {
     }
 //Handle the runtime permissions for Read Contacts
         private fun hasReadContactsPermission() =
-
-            ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_CONTACTS) == PackageManager.PERMISSION_GRANTED
+            ActivityCompat.checkSelfPermission(requireContext(),
+                Manifest.permission.READ_CONTACTS) == PackageManager.PERMISSION_GRANTED
         //For now we only have the READ_CONTACTS, however we will likely use more later.
         //Add later platform check for modern app permissions, BuildConfig.VERSION_CODE didn't return what I expected.
         private fun hasRuntimePermission() : Boolean {

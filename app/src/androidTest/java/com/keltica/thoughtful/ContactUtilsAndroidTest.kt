@@ -6,7 +6,9 @@ import androidx.test.platform.app.InstrumentationRegistry
 import com.google.common.truth.Truth.assertThat
 import com.keltica.thoughtful.model.ContactModel
 import com.keltica.thoughtful.model.ContactUtils
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.*
+import kotlinx.coroutines.test.runBlockingTest
+import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 
@@ -20,18 +22,23 @@ import org.junit.runner.RunWith
  *  -Matt Graves June 2021
  * */
 @RunWith(AndroidJUnit4::class)
-class ContactUtilsTest {
-private val TAG = "ContactUtilsTest"
+class ContactUtilsAndroidTest {
 
-    private val mTestAppContext: Context? = InstrumentationRegistry.getInstrumentation().targetContext
+    private val mTestAppContext: Context? =
+        InstrumentationRegistry.getInstrumentation().targetContext
     private lateinit var mTestContactCollection: ArrayList<ContactModel>
+
+    @ExperimentalCoroutinesApi
+    @Before
+    fun setupCollection() = runBlockingTest {
+        mTestContactCollection = ContactUtils.getContacts(mTestAppContext)
+    }
 
 
     @Test
-    fun shouldGetContactsFromProvider_ArrayList_SizeGreaterZero() =
-        runBlocking{
-            mTestContactCollection  = ContactUtils.getContacts(mTestAppContext)
-            assertThat(mTestContactCollection.size).isGreaterThan(0)
-        }
+    fun shouldHaveCollectionData_ArrayList_SizeGreaterZero() {
+        val result = mTestContactCollection.size
+        assertThat(result).isGreaterThan(0)
+    }
 
 }

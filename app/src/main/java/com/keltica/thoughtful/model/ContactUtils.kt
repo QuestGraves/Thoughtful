@@ -24,7 +24,7 @@ object ContactUtils {
      * asynchronous call to the Content Provider
      * @return ArrayList<ContactModel> a collection of Contacts
      * */
-     fun getContacts(context: Context?): ArrayList<ContactModel> {
+      suspend fun getContacts(context: Context?): ArrayList<ContactModel> {
         return loadContactsFromPersistence(context)
     }
 
@@ -33,7 +33,7 @@ object ContactUtils {
      * loadContactsFromPersistence will load contacts from either Firestore
      * or the local Contacts ContentProvider if they haven't already
      * */
-    private fun loadContactsFromPersistence(context: Context?): ArrayList<ContactModel> {
+    private suspend fun loadContactsFromPersistence(context: Context?): ArrayList<ContactModel> {
 
         if (context == null) {
             throw NullPointerException("$TAG: argument context is null...")
