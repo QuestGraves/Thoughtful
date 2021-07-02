@@ -1,4 +1,4 @@
 package com.keltica.thoughtful.model
 
-class LocalRoomSQL {
+class LocalRoomDatabase {
 }
