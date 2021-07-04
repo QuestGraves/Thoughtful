@@ -25,7 +25,8 @@ class ContactModelUnitTest {
     
     @Before
     fun setupTests(){
-        mTestContact = ContactModel()
+        //init a dum, empty
+        mTestContact = ContactModel(-1,"","","")
     }
     //Base test case
     @Test
@@ -35,21 +36,21 @@ class ContactModelUnitTest {
     //ID
     @Test
     fun shouldHaveIntPropertyForID_IdInt_NotNull(){
-        assertThat(mTestContact.ID).isNotNull()
+        assertThat(mTestContact.id).isNotNull()
     }
     @Test
     fun shouldSetIdIntProperty_IdInt_One(){
-        mTestContact.ID = 1
-        assertThat(mTestContact.ID).isEqualTo(1)
+        mTestContact.id = 1
+        assertThat(mTestContact.id).isEqualTo(1)
     }
     @Test
     fun shouldSetIdIntProperty_IdInt_NotThree(){
-        mTestContact.ID = 1
-        assertThat(mTestContact.ID).isNotEqualTo(3)
+        mTestContact.id = 1
+        assertThat(mTestContact.id).isNotEqualTo(3)
     }
     @Test
     fun shouldHaveDefaultValueForID_IdInt_negativeOne(){
-        assertThat(mTestContact.ID).isEqualTo(-1)
+        assertThat(mTestContact.id).isEqualTo(-1)
     }
     //DisplayName
     @Test
@@ -100,7 +101,7 @@ class ContactModelUnitTest {
     @Test
     fun shouldListIDProperty_ToStringFunction_ContainsID(){
         val toStringResult = mTestContact.toString()
-        assertThat(toStringResult.contains(mTestContact.ID.toString()))
+        assertThat(toStringResult.contains(mTestContact.id.toString()))
     }
     @Test
     fun shouldHaveDefaultToStringOverride_ToString_NotNull(){
