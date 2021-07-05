@@ -1,36 +1,33 @@
 package com.keltica.thoughtful.view.contact
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.keltica.thoughtful.model.ContactModel
-import com.keltica.thoughtful.model.ContactUtils
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.runBlocking
+import com.keltica.thoughtful.model.ThoughtfulDatabase
+import com.keltica.thoughtful.repository.ContactRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
-class ChoseContactViewModel : ViewModel() {
+class ChoseContactViewModel(application: Application) : AndroidViewModel(application) {
 
+        private val readAllContactData: LiveData<List<ContactModel>>
+        private val repository: ContactRepository
 
-        private val _nameText = MutableLiveData<String>().apply {
-            value = "This is name text"
+        init {
+            val contactDao = ThoughtfulDatabase.getDatabase(application).contactDao()
+            repository = ContactRepository(contactDao)
+            readAllContactData = repository.readAllRoomContactData
+
         }
-        private val _phoneText = MutableLiveData<String>().apply {
-            value = "This is phone text"
+
+    fun addContact(contact: ContactModel){
+        viewModelScope.launch(Dispatchers.IO){
+            repository.addContact(contact)
         }
-        private val _photoText = MutableLiveData<String>().apply {
-            value = "This is photo text"
-        }
-    //Exposed observable.
-    val mNameText: LiveData<String> = _nameText
-    val mPhoneText: LiveData<String> = _phoneText
-    val mPhotoText: LiveData<String> = _photoText
+    }
 
-
-
-
-    //ToDo: Look into LiveData/ViewModel again, still a bit hazy on observer in this scenario
-
-    val nameText: LiveData<String> = _nameText
 
 }

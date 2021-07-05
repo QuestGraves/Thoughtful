@@ -1,10 +1,11 @@
-package com.keltica.thoughtful.model
+package com.keltica.thoughtful.util
 
 import android.util.Log
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
+import com.keltica.thoughtful.model.ContactModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -18,9 +19,8 @@ import java.lang.Exception
  * */
 object FirestoreUtils {
 
-    object Contact {
-        private val mFirestoreCollection = Firebase.firestore.collection("contacts")
-        private const val TAG = "FirestoreUtils.Contact"
+    private val mFirestoreCollection = Firebase.firestore.collection("contacts")
+    private const val TAG = "FirestoreUtils.Contact"
 
         /**
          * Sends a ContactModel to Google Firebase Firestore for persistent storage
@@ -45,7 +45,7 @@ object FirestoreUtils {
          * @return an ArrayList<ContactModel> data from online DB
          * uses Coroutine Dispatchers.IO Scope for query
          */
-        fun retrieveAllContactsFromFirestore(): ArrayList<ContactModel> {
+        fun retrieveAllContactsFromFirestore(): List<ContactModel> {
             val listOfContacts = arrayListOf<ContactModel>()
             var querySnapshot: QuerySnapshot
             //start new Coroutine for background work
@@ -84,6 +84,6 @@ object FirestoreUtils {
         }
         return contactCollection
     }
-}
+
 }
 

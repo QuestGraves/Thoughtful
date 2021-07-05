@@ -10,10 +10,8 @@ import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.keltica.thoughtful.databinding.FragmentChoseContactBinding
 import androidx.recyclerview.widget.RecyclerView
-import com.keltica.thoughtful.model.ContactUtils
 
 
 class ChoseContactFragment : Fragment() {
@@ -37,12 +35,11 @@ class ChoseContactFragment : Fragment() {
         val contactRecyclerView: RecyclerView = binding.contactChoseRecycler
         if (hasRuntimePermission()) {
 
-            //get the collection from the ViewModel
-            var contactCollection = ContactUtils.getContacts(requireContext())
-            Log.d(TAG, "Is the collection empty? : ${contactCollection.isEmpty()}")
-            contactRecyclerView.adapter = ChoseContactRecyclerAdapter(contactCollection)
-            contactRecyclerView.layoutManager = LinearLayoutManager(activity) // verify this is correct on refactor...
-            contactRecyclerView.setHasFixedSize(false)
+            //get the collection from the ViewModel or rather binding? yes to both
+//         //   Log.d(TAG, "Is the collection empty? : ${contactCollection.isEmpty()}")
+//            contactRecyclerView.adapter = ChoseContactRecyclerAdapter(contactCollection)
+//            contactRecyclerView.layoutManager = LinearLayoutManager(activity) // verify this is correct on refactor...
+//            contactRecyclerView.setHasFixedSize(false)
         }
         return binding.root
     }

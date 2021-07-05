@@ -1,10 +1,11 @@
-package com.keltica.thoughtful.model
+package com.keltica.thoughtful.util
 
 import android.content.Context
 import android.database.Cursor
 import android.net.Uri
 import android.provider.ContactsContract
 import android.util.Log
+import com.keltica.thoughtful.model.ContactModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -62,7 +63,7 @@ object ContactUtils {
                         //grab and populate a ContactModel
                         val contact =
                             ContactModel(
-                                ID = cursor.getString(contactIDIndex).toInt(),
+                                id = cursor.getString(contactIDIndex).toInt(),
                                 displayName = cursor.getString(contactNameIndex),
                                 phoneNumber = if (cursor.getString(contactPhoneIndex) == null) "" else cursor.getString(
                                     contactPhoneIndex
