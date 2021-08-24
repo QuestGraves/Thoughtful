@@ -1,4 +1,4 @@
-package com.keltica.thoughtful.view.contact
+package com.keltica.thoughtful.ui.contact
 
 import android.Manifest
 import android.content.pm.PackageManager

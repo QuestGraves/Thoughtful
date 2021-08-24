@@ -1,8 +1,9 @@
-package com.keltica.thoughtful.model
+package com.keltica.thoughtful.db
 
 import android.content.Context
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.keltica.thoughtful.models.ContactModel
 import androidx.room.Database as Database
 
 

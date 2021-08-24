@@ -1,6 +1,4 @@
-package com.keltica.thoughtful.model
-
-import java.util.*
+package com.keltica.thoughtful.models
 
 data class FavoriteModel(var contactModelAssociation: ContactModel) {
 

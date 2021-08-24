@@ -1,13 +1,12 @@
-package com.keltica.thoughtful.view.search
+package com.keltica.thoughtful.ui.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class SearchPortalViewModel :ViewModel() {
-
+class HomeViewModel :ViewModel() {
     private val _text = MutableLiveData<String>().apply {
-        value = "This is search portal Fragment"
+        value = "This is home Fragment"
     }
     val text: LiveData<String> = _text
 }

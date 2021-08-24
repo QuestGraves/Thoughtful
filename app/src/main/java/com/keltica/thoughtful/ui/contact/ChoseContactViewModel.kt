@@ -1,12 +1,12 @@
-package com.keltica.thoughtful.view.contact
+package com.keltica.thoughtful.ui.contact
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.keltica.thoughtful.model.ContactModel
-import com.keltica.thoughtful.model.ThoughtfulDatabase
-import com.keltica.thoughtful.repository.ContactRepository
+import com.keltica.thoughtful.models.ContactModel
+import com.keltica.thoughtful.db.ThoughtfulDatabase
+import com.keltica.thoughtful.repositories.ContactRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

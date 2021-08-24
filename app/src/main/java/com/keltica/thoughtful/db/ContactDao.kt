@@ -1,10 +1,11 @@
-package com.keltica.thoughtful.model
+package com.keltica.thoughtful.db
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.keltica.thoughtful.models.ContactModel
 
 /**
  * Data access object for the contact information.

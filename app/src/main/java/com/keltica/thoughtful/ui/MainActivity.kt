@@ -1,4 +1,4 @@
-package com.keltica.thoughtful.view
+package com.keltica.thoughtful.ui
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView

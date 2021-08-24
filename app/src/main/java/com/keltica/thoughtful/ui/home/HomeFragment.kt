@@ -1,4 +1,4 @@
-package com.keltica.thoughtful.view.home
+package com.keltica.thoughtful.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater

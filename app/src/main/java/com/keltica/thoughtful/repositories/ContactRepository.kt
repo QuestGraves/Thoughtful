@@ -1,10 +1,10 @@
-package com.keltica.thoughtful.repository
+package com.keltica.thoughtful.repositories
 
 import android.content.Context
 import androidx.lifecycle.LiveData
-import com.keltica.thoughtful.model.ContactDao
-import com.keltica.thoughtful.model.ContactModel
-import com.keltica.thoughtful.util.FirestoreUtils
+import com.keltica.thoughtful.db.ContactDao
+import com.keltica.thoughtful.models.ContactModel
+import com.keltica.thoughtful.utils.FirestoreUtils
 
 class ContactRepository(private val contactDao: ContactDao){
 

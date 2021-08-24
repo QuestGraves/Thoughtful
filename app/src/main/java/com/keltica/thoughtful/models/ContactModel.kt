@@ -1,9 +1,8 @@
-package com.keltica.thoughtful.model
+package com.keltica.thoughtful.models
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import kotlin.collections.ArrayList
 
 /**
  * Represents the base model for our contact information and

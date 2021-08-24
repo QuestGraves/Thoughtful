@@ -1,4 +1,4 @@
-package com.keltica.thoughtful.view.contact
+package com.keltica.thoughtful.ui.contact
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.keltica.thoughtful.R
-import com.keltica.thoughtful.model.ContactModel
+import com.keltica.thoughtful.models.ContactModel
 
 
 class ChoseContactRecyclerAdapter(private val contactModelList: ArrayList<ContactModel>) : RecyclerView.Adapter<ChoseContactRecyclerAdapter.ChoseContactViewHolder>(){

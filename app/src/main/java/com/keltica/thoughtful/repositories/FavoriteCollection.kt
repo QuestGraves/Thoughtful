@@ -1,4 +1,7 @@
-package com.keltica.thoughtful.model
+package com.keltica.thoughtful.repositories
+
+import com.keltica.thoughtful.models.ContactModel
+import com.keltica.thoughtful.models.FavoriteModel
 
 class FavoriteCollection(contact: ContactModel) {
 

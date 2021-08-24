@@ -1,11 +1,11 @@
-package com.keltica.thoughtful.util
+package com.keltica.thoughtful.utils
 
 import android.content.Context
 import android.database.Cursor
 import android.net.Uri
 import android.provider.ContactsContract
 import android.util.Log
-import com.keltica.thoughtful.model.ContactModel
+import com.keltica.thoughtful.models.ContactModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

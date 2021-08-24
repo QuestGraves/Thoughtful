@@ -1,6 +1,6 @@
 package com.keltica.thoughtful
 
-import com.keltica.thoughtful.model.ContactModel
+import com.keltica.thoughtful.models.ContactModel
 import com.google.common.truth.Truth.assertThat
 import org.junit.Before
 import org.junit.Test

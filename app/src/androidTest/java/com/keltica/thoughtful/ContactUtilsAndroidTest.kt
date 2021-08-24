@@ -4,8 +4,8 @@ import android.content.Context
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.google.common.truth.Truth.assertThat
-import com.keltica.thoughtful.model.ContactModel
-import com.keltica.thoughtful.util.ContactUtils
+import com.keltica.thoughtful.models.ContactModel
+import com.keltica.thoughtful.utils.ContactUtils
 import kotlinx.coroutines.*
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before
