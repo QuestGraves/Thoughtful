@@ -1,4 +1,7 @@
 # Thoughtful
+Still peicing it together.
+Version 1.0.0
+
 The Elevator Pitch - (and workflow):
 Be more thoughtful in your gift giving! 
 Ever wonder what to get someone special, or in many cases close friends or even co-workers?
